@@ -36,12 +36,12 @@ static void MakeShortURL(GtkWidget *parent,gpointer data)
         struct curl_slist *header = NULL;
         header = curl_slist_append(header,"Content-Type: application/json");
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json_post);
-		curl_easy_setopt(curl, CURLOPT_URL, "https://www.googleapis.com/urlshortener/v1/url");
-		curl_easy_setopt(curl, CURLOPT_HTTPHEADER, header);
-		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, ExtractShortUrl);
-		curl_easy_setopt(curl, CURLOPT_WRITEDATA, window);
-		curl_easy_perform(curl);
-		free(json_post);
+	curl_easy_setopt(curl, CURLOPT_URL, "https://www.googleapis.com/urlshortener/v1/url");
+	curl_easy_setopt(curl, CURLOPT_HTTPHEADER, header);
+	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, ExtractShortUrl);
+	curl_easy_setopt(curl, CURLOPT_WRITEDATA, window);
+	curl_easy_perform(curl);
+	free(json_post);
     }
     else
     {
